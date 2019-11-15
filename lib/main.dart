@@ -14,7 +14,7 @@ class _InstaMainState extends State<InstaMain> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Instagram',
-      darkTheme: ThemeData.dark(),
+      darkTheme: ThemeData.light(),
       home: LoginPage(),
     );
   }
