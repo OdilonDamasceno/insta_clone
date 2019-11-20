@@ -1,5 +1,8 @@
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:insta_clone/pages/login/create_account/create.account.dart';
+import 'package:insta_clone/widgets/customscaffold.dart';
+
+import 'login.dart/login.dart';
 
 class LoginPage extends StatefulWidget {
   @override
@@ -9,27 +12,7 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: PreferredSize(
-        child: Container(
-          alignment: Alignment.center,
-          decoration: BoxDecoration(color: Colors.white),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Text(
-                'portugês (Brasil)',
-                style: TextStyle(color: Colors.grey),
-              ),
-              Icon(
-                Icons.keyboard_arrow_down,
-                color: Colors.grey,
-              )
-            ],
-          ),
-        ),
-        preferredSize: Size(kWindowTouchSlop, 80),
-      ),
+    return CustomScaffold(
       body: Container(
         padding: EdgeInsets.only(left: 10, right: 10),
         color: Colors.white,
@@ -53,7 +36,12 @@ class _LoginPageState extends State<LoginPage> {
               ),
               child: SizedBox.expand(
                 child: FlatButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => CreateAccount()));
+                  },
                   child: Text(
                     'Criar nova conta',
                     style: TextStyle(
@@ -66,7 +54,6 @@ class _LoginPageState extends State<LoginPage> {
               height: 30,
             ),
             GestureDetector(
-              onTap: () {},
               child: Container(
                 alignment: Alignment.center,
                 height: 20,
@@ -78,25 +65,15 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                 ),
               ),
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => Login(),
+                    ));
+              },
             )
           ],
-        ),
-      ),
-      bottomNavigationBar: Container(
-        decoration: BoxDecoration(
-          color: Colors.white,
-          border: Border(
-            top: BorderSide(
-              width: 0.25,
-              color: Colors.grey,
-            ),
-          ),
-        ),
-        height: 50,
-        alignment: Alignment.center,
-        child: Text(
-          'Instagram do Facebook',
-          style: TextStyle(fontSize: 12, color: Colors.grey[600]),
         ),
       ),
     );
